@@ -31,7 +31,9 @@ print('All tests passed')
 
         stage('Deploy') {
             steps {
-                sh 'echo "Deploy stage placeholder"'
+                sh '''
+                   scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/lab2.pem calculator.py ec2-user@ec2-13-235-246-104.ap-south-1.compute.amazonaws.com:/home/ec2-user
+                   '''
             }
         }
     }
